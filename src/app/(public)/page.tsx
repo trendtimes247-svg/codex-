@@ -1,0 +1,8 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+const stats = [{ value: "100%", label: "Transparent reporting" }, { value: "24/7", label: "Secure giving" }, { value: "AA", label: "Accessibility baseline" }];
+
+export default function HomePage() {
+  return <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28"><section className="grid gap-12 lg:grid-cols-[1.1fr_.9fr] lg:items-center"><div><p className="text-sm font-semibold uppercase tracking-[.18em] text-foreground/60">Project Prometheus</p><h1 className="mt-5 max-w-4xl font-display text-6xl font-semibold leading-[.92] tracking-[-.055em] md:text-8xl">Every act of care should create measurable change.</h1><p className="mt-8 max-w-2xl text-lg leading-8 text-foreground/72">A production foundation for a transparent NGO platform—built for trust, accessibility, performance, and meaningful action.</p><div className="mt-10 flex flex-col gap-3 sm:flex-row"><Link href="/donate" className="inline-flex min-h-12 items-center justify-center rounded-md bg-primary px-6 font-semibold text-primary-foreground">Donate now <ArrowRight className="ml-2 h-4 w-4" /></Link><Link href="/impact" className="inline-flex min-h-12 items-center justify-center rounded-md border bg-surface px-6 font-semibold">Explore impact</Link></div></div><div className="rounded-xl border bg-surface p-6 shadow-card"><div className="grid gap-4">{stats.map((stat) => <div key={stat.label} className="rounded-lg bg-muted p-6"><p className="font-display text-5xl font-semibold">{stat.value}</p><p className="mt-2 text-sm text-foreground/70">{stat.label}</p></div>)}</div></div></section></div>;
+}

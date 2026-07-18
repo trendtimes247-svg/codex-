@@ -1,0 +1,24 @@
+declare namespace React {
+  type ReactNode = unknown;
+  interface ButtonHTMLAttributes<T> { className?: string; disabled?: boolean; onClick?: () => void; [key: string]: unknown; }
+}
+declare namespace JSX { interface ElementChildrenAttribute { children: {}; } interface IntrinsicElements { [elemName: string]: any; } }
+declare module "*.css";
+declare module "react" { export type ReactNode = unknown; export type ButtonHTMLAttributes<T> = React.ButtonHTMLAttributes<T>; export function useEffect(effect: () => void | (() => void), deps?: unknown[]): void; export function useState<T>(initial: T): [T, (value: T) => void]; }
+declare module "next" { export type Metadata = Record<string, any>; export type Viewport = Record<string, any>; export type NextConfig = Record<string, any>; }
+declare module "next/link" { const Link: (props: any) => any; export default Link; }
+declare module "next/font/google" { export function Inter(options: any): { variable: string }; export function Cormorant_Garamond(options: any): { variable: string }; export function IBM_Plex_Mono(options: any): { variable: string }; }
+declare module "@vercel/analytics/react" { export function Analytics(): any; }
+declare module "next-themes" { export type ThemeProviderProps = { children?: React.ReactNode; [key: string]: unknown }; export function ThemeProvider(props: ThemeProviderProps): any; }
+declare module "lucide-react" { export const Heart: (props: any) => any; export const Search: (props: any) => any; export const ArrowRight: (props: any) => any; }
+declare module "class-variance-authority" { export type VariantProps<T> = any; export function cva(base?: string, config?: any): (props?: any) => string; }
+declare module "clsx" { export type ClassValue = unknown; export function clsx(...inputs: ClassValue[]): string; }
+declare module "tailwind-merge" { export function twMerge(...classes: string[]): string; }
+declare module "@sanity/client" { export function createClient(config: any): any; }
+declare module "zod" { export const z: any; }
+declare module "vitest" { export function describe(name: string, fn: () => void): void; export function it(name: string, fn: () => void): void; export const expect: any; }
+declare module "vitest/config" { export function defineConfig(config: any): any; }
+declare module "@playwright/test" { export const devices: Record<string, any>; export function defineConfig(config: any): any; }
+declare module "tailwindcss" { export type Config = any; }
+declare const process: { env: Record<string, string | undefined> };
+declare const URL: any;
