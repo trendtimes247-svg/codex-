@@ -11,5 +11,6 @@ export * from "./forms/forms";
 export * from "./ui/button";
 export * from "./ui/primitives";
 export * from "./visual/visual";
+export * from "./visual/motion";
 export * from "./a11y/keyboard-shortcuts";
 export * from "./a11y/focus-trap";

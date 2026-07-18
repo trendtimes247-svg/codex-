@@ -10,7 +10,7 @@ declare module "next/link" { const Link: (props: any) => any; export default Lin
 declare module "next/font/google" { export function Inter(options: any): { variable: string }; export function Cormorant_Garamond(options: any): { variable: string }; export function IBM_Plex_Mono(options: any): { variable: string }; }
 declare module "@vercel/analytics/react" { export function Analytics(): any; }
 declare module "next-themes" { export type ThemeProviderProps = { children?: React.ReactNode; [key: string]: unknown }; export function ThemeProvider(props: ThemeProviderProps): any; export function useTheme(): { theme?: string; setTheme: (theme: string) => void }; }
-declare module "lucide-react" { export const Heart: (props: any) => any; export const Search: (props: any) => any; export const ArrowRight: (props: any) => any; export const Box: (props: any) => any; export const ChevronRight: (props: any) => any; export const Menu: (props: any) => any; export const X: (props: any) => any; export const Moon: (props: any) => any; export const Sun: (props: any) => any; }
+declare module "lucide-react" { export const Heart: (props: any) => any; export const Search: (props: any) => any; export const ArrowRight: (props: any) => any; export const Box: (props: any) => any; export const ChevronRight: (props: any) => any; export const Menu: (props: any) => any; export const X: (props: any) => any; export const Moon: (props: any) => any; export const Sun: (props: any) => any; export const CheckCircle: (props: any) => any; export const Globe2: (props: any) => any; export const HeartHandshake: (props: any) => any; export const LockKeyhole: (props: any) => any; export const MapPin: (props: any) => any; export const ShieldCheck: (props: any) => any; export const Sparkles: (props: any) => any; export const UsersRound: (props: any) => any; }
 declare module "class-variance-authority" { export type VariantProps<T> = any; export function cva(base?: string, config?: any): (props?: any) => string; }
 declare module "clsx" { export type ClassValue = unknown; export function clsx(...inputs: ClassValue[]): string; }
 declare module "tailwind-merge" { export function twMerge(...classes: string[]): string; }
@@ -31,3 +31,5 @@ declare class IntersectionObserver { constructor(callback: (entries: any[]) => v
 type KeyboardEvent = any;
 type HTMLElement = any;
 type HTMLDivElement = any;
+
+declare module "framer-motion" { export const motion: any; export function useReducedMotion(): boolean; }
