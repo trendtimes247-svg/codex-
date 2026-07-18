@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { securityHeaders } from "./src/lib/security/headers";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -10,7 +11,8 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "images.unsplash.com" }
     ]
   },
-  experimental: { optimizePackageImports: ["lucide-react", "framer-motion"] }
+  experimental: { optimizePackageImports: ["lucide-react", "framer-motion"] },
+  async headers() { return [{ source: "/(.*)", headers: [...securityHeaders] }]; }
 };
 
 export default nextConfig;

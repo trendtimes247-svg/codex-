@@ -46,3 +46,4 @@ declare module "@react-three/fiber" { export const Canvas: (props: any) => any; 
 declare module "@react-three/drei" { export const Float: (props: any) => any; export const Sphere: (props: any) => any; export const OrbitControls: (props: any) => any; }
 declare module "gsap" { const gsap: any; export default gsap; }
 declare module "gsap/ScrollTrigger" { export const ScrollTrigger: any; }
+declare module "next" { export namespace MetadataRoute { type Robots = any; type Sitemap = any; } }
