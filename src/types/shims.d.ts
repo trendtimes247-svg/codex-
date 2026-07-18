@@ -33,3 +33,8 @@ type HTMLElement = any;
 type HTMLDivElement = any;
 
 declare module "framer-motion" { export const motion: any; export function useReducedMotion(): boolean; }
+declare module "next/image" { const Image: (props: any) => any; export default Image; }
+declare module "next/headers" { export function draftMode(): { isEnabled: boolean }; }
+declare module "next/cache" { export function unstable_cache<T extends (...args: never[]) => unknown>(fn: T, keys: string[], options?: { revalidate?: number; tags?: string[] }): T; }
+declare module "@sanity/image-url" { export default function imageUrlBuilder(config: { projectId: string; dataset: string }): { image: (source: unknown) => { width: (value: number) => any; quality: (value: number) => any; auto: (value: string) => any; url: () => string } }; }
+declare module "sanity" { type Rule = { required: () => Rule; min: (value: number) => Rule; max: (value: number) => Rule }; type Field = { name?: string; title?: string; type?: string; rows?: number; initialValue?: unknown; to?: unknown[]; of?: unknown[]; options?: unknown; fields?: unknown[]; validation?: (rule: Rule) => Rule }; export function defineField(field: Field): Field; export function defineType<T extends Field>(type: T): T; }
