@@ -1,0 +1,2 @@
+export type VolunteerApplication = { id: string; status: "submitted" | "in_review" | "approved"; project: string; upcomingEvent?: string };
+export async function getVolunteerProfile(_userId: string): Promise<{ hours: number; applications: VolunteerApplication[]; assignedProjects: string[] }> { return { hours: 42, assignedProjects: ["Climate resilience", "Community health"], applications: [{ id: "vol_1001", status: "approved", project: "Climate resilience", upcomingEvent: "Community readiness briefing" }] }; }

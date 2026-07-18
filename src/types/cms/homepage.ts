@@ -1,0 +1,24 @@
+export type SanityImageAsset = { _id: string; url: string; metadata?: { lqip?: string; dimensions?: { width: number; height: number } } };
+export type SanityImage = { alt: string; asset?: SanityImageAsset; crop?: unknown; hotspot?: unknown };
+export type LinkValue = { label: string; href: string; variant?: "primary" | "secondary" };
+export type StatValue = { value: string; label: string; source?: string };
+export type ProgramCardValue = { title: string; location: string; progress: number; href: string };
+export type TimelineItemValue = { date: string; title: string; description: string };
+export type TestimonialValue = { quote: string; name: string; role?: string };
+export type NewsCardValue = { title: string; description: string; href: string; date?: string };
+export type PartnerValue = { name: string; logo?: string };
+export type SeoValue = { title?: string; description?: string; image?: SanityImage; canonical?: string; noIndex?: boolean };
+export type HomepageData = {
+  title: string;
+  seo?: SeoValue;
+  hero: { eyebrow: string; title: string; description: string; primaryCta: LinkValue; secondaryCta: LinkValue; dashboardMetric: { value: number; label: string }; proofPoints: string[]; visual?: SanityImage };
+  trust: { eyebrow: string; title: string; description: string; stats: StatValue[]; highlights: string[]; partners: PartnerValue[] };
+  programs: { eyebrow: string; title: string; cta: LinkValue; items: ProgramCardValue[] };
+  impact: { eyebrow: string; title: string; metrics: { label: string; value: number }[]; mapDescription: string; timeline: TimelineItemValue[]; stories: TestimonialValue[] };
+  featuredStory: { eyebrow: string; quote: string; title: string; description: string; cta: LinkValue; image?: SanityImage };
+  donation: { eyebrow: string; title: string; description: string; securityMessage: string; amounts: number[]; unitCost: number };
+  volunteer: { title: string; description: string; cta: LinkValue; benefits: string[] };
+  news: { eyebrow: string; title: string; featured: NewsCardValue; items: NewsCardValue[] };
+  testimonials: { eyebrow: string; title: string; items: TestimonialValue[] };
+  footerCta: { eyebrow: string; title: string; actions: LinkValue[]; socialLinks: string[] };
+};

@@ -1,0 +1,1 @@
+export default function Loading() { return <div className="grid min-h-screen place-items-center bg-background text-foreground"><p role="status" aria-live="polite" className="rounded-md border bg-surface px-5 py-3 text-sm shadow-card">Loading Project Prometheus…</p></div>; }
