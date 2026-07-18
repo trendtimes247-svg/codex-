@@ -1,5 +1,8 @@
 export default [
+  { ignores: [".next/**", "node_modules/**", "public/**", "coverage/**"] },
   {
-    ignores: [".next/**", "node_modules/**", "public/**", "*.config.ts", "src/**/*.tsx", "src/**/*.ts", "tests/**", "next-env.d.ts"]
+    files: ["**/*.{js,mjs,cjs}"],
+    languageOptions: { ecmaVersion: "latest", sourceType: "module" },
+    rules: { "no-unused-vars": "error", "no-undef": "error" }
   }
 ];
