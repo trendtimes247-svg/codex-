@@ -1,0 +1,25 @@
+import type { ReactNode } from "react";
+import Link from "next/link";
+import { cn } from "@/utils/cn";
+
+export type CardProps = { title: string; description?: string; href?: string; children?: ReactNode; variant?: "default" | "muted" | "glass" };
+/** Flexible card supporting link and static variants. */
+export function Card({ title, description, href, children, variant = "default" }: CardProps) { const cls = cn("rounded-xl border p-6 transition focus-within:shadow-focus", variant === "muted" ? "bg-muted" : variant === "glass" ? "bg-surface/70 backdrop-blur-md" : "bg-surface shadow-card"); const content = <><h3 className="font-semibold">{title}</h3>{description ? <p className="mt-2 text-sm leading-6 text-foreground/70">{description}</p> : null}{children}</>; return href ? <Link className={cn(cls, "block hover:-translate-y-0.5")} href={href}>{content}</Link> : <article className={cls}>{content}</article>; }
+/** Responsive feature grid. */
+export function FeatureGrid({ features }: { features: CardProps[] }) { return <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">{features.map((feature) => <Card key={feature.title} {...feature} />)}</div>; }
+/** Chronological timeline using ordered-list semantics. */
+export function Timeline({ items }: { items: { date: string; title: string; description: string }[] }) { return <ol className="space-y-6 border-l pl-6">{items.map((item) => <li key={`${item.date}-${item.title}`} className="relative"><span className="absolute -left-[31px] top-1 h-3 w-3 rounded-full bg-primary" /><time className="text-sm font-semibold text-foreground/60">{item.date}</time><h3 className="mt-1 font-semibold">{item.title}</h3><p className="mt-2 text-sm leading-6 text-foreground/70">{item.description}</p></li>)}</ol>; }
+/** Accessible statistics grid with labels and optional source text. */
+export function Statistics({ stats }: { stats: { value: string; label: string; source?: string }[] }) { return <dl className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{stats.map((stat) => <div key={stat.label} className="rounded-xl border bg-surface p-6"><dt className="text-sm text-foreground/65">{stat.label}</dt><dd className="mt-2 font-display text-5xl font-semibold">{stat.value}</dd>{stat.source ? <p className="mt-2 text-xs text-foreground/55">{stat.source}</p> : null}</div>)}</dl>; }
+/** Testimonial block with quote semantics. */
+export function Testimonial({ quote, name, role }: { quote: string; name: string; role?: string }) { return <figure className="rounded-xl border bg-surface p-6 shadow-card"><blockquote className="text-lg leading-8">“{quote}”</blockquote><figcaption className="mt-4 text-sm font-semibold">{name}{role ? <span className="block font-normal text-foreground/60">{role}</span> : null}</figcaption></figure>; }
+/** Team/person card. */
+export function TeamCard({ name, role, bio, image }: { name: string; role: string; bio: string; image?: string }) { return <article className="rounded-xl border bg-surface p-5"><div className="aspect-square rounded-lg bg-muted" style={image ? { backgroundImage: `url(${image})`, backgroundSize: "cover" } : undefined} /><h3 className="mt-4 font-semibold">{name}</h3><p className="text-sm text-foreground/60">{role}</p><p className="mt-3 text-sm leading-6 text-foreground/70">{bio}</p></article>; }
+/** Partner logo list with text fallback. */
+export function PartnerLogos({ partners }: { partners: { name: string; logo?: string }[] }) { return <ul className="grid grid-cols-2 gap-4 md:grid-cols-4">{partners.map((partner) => <li key={partner.name} className="grid min-h-24 place-items-center rounded-lg border bg-surface p-4 text-center text-sm font-semibold text-foreground/70">{partner.logo ? <img src={partner.logo} alt={partner.name} className="max-h-10" /> : partner.name}</li>)}</ul>; }
+/** Project card with progress semantics. */
+export function ProjectCard({ title, location, progress, href }: { title: string; location: string; progress: number; href: string }) { return <Card title={title} description={location} href={href}><div className="mt-4"><div className="h-2 overflow-hidden rounded-full bg-muted"><div className="h-full bg-primary" style={{ width: `${Math.min(100, Math.max(0, progress))}%` }} /></div><p className="mt-2 text-xs text-foreground/60">{progress}% funded</p></div></Card>; }
+/** Responsive media gallery. */
+export function Gallery({ images }: { images: { src: string; alt: string }[] }) { return <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{images.map((image) => <li key={image.src} className="overflow-hidden rounded-xl border bg-surface"><img src={image.src} alt={image.alt} className="aspect-[4/3] w-full object-cover" loading="lazy" /></li>)}</ul>; }
+/** News/article card. */
+export function NewsCard({ title, excerpt, href, date }: { title: string; excerpt: string; href: string; date: string }) { return <Card title={title} description={excerpt} href={href}><time className="mt-4 block text-xs font-semibold uppercase tracking-wide text-foreground/55">{date}</time></Card>; }
