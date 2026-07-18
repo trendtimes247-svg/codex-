@@ -1,0 +1,4 @@
+import { Badge, Table } from "@/components";
+import { requireUser } from "@/lib/auth/session";
+import { getVolunteerProfile } from "@/lib/volunteer";
+export default async function VolunteeringPage() { const user = await requireUser(["volunteer", "administrator"]); const profile = await getVolunteerProfile(user!.id); return <section><h1 className="font-display text-5xl font-semibold">Volunteering</h1><div className="mt-6 rounded-xl border bg-surface p-6"><p className="text-sm text-foreground/60">Verified volunteer hours</p><p className="font-display text-5xl font-semibold">{profile.hours}</p></div><div className="mt-8"><Table caption="Volunteer applications" columns={["Project", "Status", "Upcoming event"]} rows={profile.applications.map((application) => [application.project, <Badge tone="success">{application.status}</Badge>, application.upcomingEvent ?? "Not scheduled"])} /></div></section>; }

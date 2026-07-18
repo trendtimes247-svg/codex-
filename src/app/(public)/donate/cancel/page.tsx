@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function DonationCancelPage() { return <section className="mx-auto max-w-2xl px-6 py-20 text-center"><h1 className="font-display text-5xl font-semibold">Donation was not completed.</h1><p className="mt-5 text-foreground/70">No payment was taken. You can safely restart the donation flow when ready.</p><Link href="/donate" className="mt-8 inline-flex min-h-12 items-center rounded-md bg-primary px-6 font-semibold text-primary-foreground">Return to donate</Link></section>; }
