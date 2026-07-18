@@ -4,7 +4,7 @@ declare namespace React {
 }
 declare namespace JSX { interface IntrinsicAttributes { key?: string | number; } interface ElementChildrenAttribute { children: {}; } interface IntrinsicElements { [elemName: string]: any; } }
 declare module "*.css";
-declare module "react" { export type ReactNode = unknown; export type ButtonHTMLAttributes<T> = React.ButtonHTMLAttributes<T>; export function useEffect(effect: () => void | (() => void), deps?: unknown[]): void; export function useState<T>(initial: T): [T, (value: T) => void]; export function useRef<T>(initial: T): { current: T }; }
+declare module "react" { export type ReactNode = unknown; export type ButtonHTMLAttributes<T> = React.ButtonHTMLAttributes<T>; export function useEffect(effect: () => void | (() => void), deps?: unknown[]): void; export function useState<T>(initial: T): [T, (value: T) => void]; export function useRef<T>(initial: T): { current: T }; export function useMemo<T>(factory: () => T, deps: unknown[]): T; }
 declare module "next" { export type Metadata = Record<string, any>; export type Viewport = Record<string, any>; export type NextConfig = Record<string, any>; }
 declare module "next/link" { const Link: (props: any) => any; export default Link; }
 declare module "next/font/google" { export function Inter(options: any): { variable: string }; export function Cormorant_Garamond(options: any): { variable: string }; export function IBM_Plex_Mono(options: any): { variable: string }; }
@@ -41,3 +41,8 @@ declare module "sanity" { type Rule = { required: () => Rule; min: (value: numbe
 declare module "next/navigation" { export function redirect(url: string): never; }
 declare module "next/server" { export const NextResponse: { json: (body: unknown, init?: { status?: number }) => Response }; }
 declare module "next/headers" { export function cookies(): { get: (name: string) => { value: string } | undefined; set: (name: string, value: string, options?: unknown) => void; delete: (name: string) => void }; }
+declare module "next/dynamic" { export default function dynamic(loader: () => Promise<unknown>, options?: unknown): any; }
+declare module "@react-three/fiber" { export const Canvas: (props: any) => any; export function useFrame(callback: (state: any, delta: number) => void): void; }
+declare module "@react-three/drei" { export const Float: (props: any) => any; export const Sphere: (props: any) => any; export const OrbitControls: (props: any) => any; }
+declare module "gsap" { const gsap: any; export default gsap; }
+declare module "gsap/ScrollTrigger" { export const ScrollTrigger: any; }

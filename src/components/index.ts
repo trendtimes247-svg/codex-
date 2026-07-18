@@ -14,3 +14,8 @@ export * from "./visual/visual";
 export * from "./visual/motion";
 export * from "./a11y/keyboard-shortcuts";
 export * from "./a11y/focus-trap";
+
+export * from "./cinematic/hero-scene";
+export * from "./cinematic/interactive-globe";
+export * from "./cinematic/scroll-storytelling";
+export * from "./cinematic/gradient-mesh";
